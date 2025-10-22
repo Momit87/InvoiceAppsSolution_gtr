@@ -1,170 +1,250 @@
-# [Project Title]
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale-1.0">
+    <title>InvoiceApps Solution README</title>
+    <!-- Import Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Import Inter font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Use Inter as the default font */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        /* Style for inline code */
+        code:not(pre code) {
+            @apply bg-gray-700 text-pink-400 px-2 py-0.5 rounded-md font-mono text-sm;
+        }
 
-<p align="left">
-  <img alt="GitHub stars" src="https://img.shields.io/github/stars/[your-username]/[your-repo-name]?style=social">
-  <img alt="GitHub forks" src="https://img.shields.io/github/forks/[your-username]/[your-repo-name]?style=social">
-  <img alt="GitHub watchers" src="https://img.shields.io/github/watchers/[your-username]/[your-repo-name]?style=social">
-  <br>
-  <img alt="Build Status" src="https://img.shields.io/github/actions/workflow/status/[your-username]/[your-repo-name]/[your-workflow-file.yml]?branch=main">
-  <img alt="License" src="https://img.shields.io/github/license/[your-username]/[your-repo-name]">
-  <img alt="Project Version" src="https://img.shields.io/badge/version-1.0.0-blue">
-</p>
+        /* Style for list markers */
+        li::marker {
+            @apply text-blue-400;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 antialiased">
 
-> A brief description of what your project does and who it's for.
+    <!-- Main Content Container -->
+    <div class="max-w-5xl mx-auto p-6 sm:p-10 bg-gray-800 rounded-lg shadow-2xl my-10 border border-gray-700">
 
-<details>
-  <summary><strong>Table of Contents</strong></summary>
-  <ol>
-    <li><a href="#about-the-project">About The Project</a></li>
-    <li><a href="#features">Features</a></li>
-    <li><a href="#built-with">Built With</a></li>
-    <li><a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
-  </ol>
-</details>
+        <!-- Header -->
+        <header class="mb-10">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-blue-400 mb-3">InvoiceApps Solution</h1>
+            <p class="text-lg sm:text-xl text-gray-300">
+                This repository contains the solution for the "INTERN ASP.NET" assignment for <strong>Genuine Technology & Research Ltd.</strong> It is a .NET 8 application demonstrating a decoupled architecture with an ASP.NET Core Web API backend and an ASP.NET Core MVC client.
+            </p>
+        </header>
 
----
+        <!-- Overview Section -->
+        <section>
+            <h2 class="text-3xl font-bold text-white border-b-2 border-blue-500 pb-2 mb-6 mt-12">Overview</h2>
+            <p class="text-gray-300 text-base leading-relaxed mb-6">
+                The solution implements a simple employee management system. It consists of two main projects:
+            </p>
+            <ol class="list-decimal list-inside space-y-3 text-gray-300 text-base">
+                <li><strong class="font-semibold text-white">InvoiceApps.Api:</strong> A .NET 8 Web API backend responsible for all data operations (CRUD), user authentication, and business logic.</li>
+                <li><strong class="font-semibold text-white">InvoiceApps.MvcClient:</strong> A .NET 8 MVC client application that consumes the API, providing a user interface for managing employees, departments, and designations. It also integrates a third-party API.</li>
+            </ol>
+        </section>
 
-## About The Project
+        <!-- Features Section -->
+        <section>
+            <h2 class="text-3xl font-bold text-white border-b-2 border-blue-500 pb-2 mb-6 mt-12">Features</h2>
+            
+            <h3 class="text-2xl font-semibold text-gray-200 mt-8 mb-4">Backend (InvoiceApps.Api)</h3>
+            <ul class="list-disc list-inside space-y-2 text-gray-300">
+                <li><strong class="font-semibold text-white">RESTful API:</strong> Full CRUD (Create, Read, Update, Delete) operations for Employees, Departments, and Designations.</li>
+                <li><strong class="font-semibold text-white">Authentication:</strong> Simple user login and management using <code>ASP.NET Core Identity</code>.</li>
+                <li><strong class="font-semibold text-white">File Handling:</strong> API endpoints for uploading and downloading files.</li>
+                <li><strong class="font-semibold text-white">API Documentation:</strong> <code>Swagger UI</code> enabled for easy API testing and documentation.</li>
+                <li><strong class="font-semibold text-white">CORS:</strong> Configured to allow requests from the MVC client.</li>
+            </ul>
 
-[Project Name] is a tool that...
+            <h3 class="text-2xl font-semibold text-gray-200 mt-8 mb-4">Data Access</h3>
+            <ul class="list-disc list-inside space-y-2 text-gray-300">
+                <li><strong class="font-semibold text-white">Repository Pattern:</strong> Abstracts data access logic for cleaner, more maintainable code.</li>
+                <li><strong class="font-semibold text-white">Hybrid ORM Strategy:</strong>
+                    <ul class="list-disc list-inside space-y-2 text-gray-300 ml-6 mt-2">
+                        <li><strong class="font-semibold text-white">Entity Framework Core:</strong> Used for all write operations (Insert, Update, Delete).</li>
+                        <li><strong class="font-semibold text-white">Dapper & ADO.NET:</strong> Used for all read operations via <code>SQL Stored Procedures</code> for optimized performance.</li>
+                    </ul>
+                </li>
+                <li><strong class="font-semibold text-white">Database:</strong> Includes SQL scripts for schema, seed data, stored procedures, and triggers.</li>
+            </ul>
 
-Here's why it's useful:
-* **Problem 1:** It solves...
-* **Problem 2:** It helps...
+            <h3 class="text-2xl font-semibold text-gray-200 mt-8 mb-4">Frontend (InvoiceApps.MvcClient)</h3>
+            <ul class="list-disc list-inside space-y-2 text-gray-300">
+                <li><strong class="font-semibold text-white">Modern UI:</strong> Built with ASP.NET Core MVC and Razor Views.</li>
+                <li><strong class="font-semibold text-white">AJAX-Driven:</strong> Uses vanilla JavaScript/jQuery for asynchronous CRUD operations, providing a smooth user experience without full-page reloads.</li>
+                <li><strong class="font-semibold text-white">External API Integration:</strong> Fetches and displays a product list from an external API (<code>https://www.pqstec.com/InvoiceApps/values/GetProductListAll</code>).</li>
+            </ul>
+        </section>
 
-![Project Screenshot/Demo]([path-to-your-screenshot.png])
-*(Optional: Add a caption for the image)*
+        <!-- Technology Stack Section -->
+        <section>
+            <h2 class="text-3xl font-bold text-white border-b-2 border-blue-500 pb-2 mb-6 mt-12">Technology Stack</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                <span class="bg-gray-700 text-white text-sm font-medium px-4 py-2 rounded-full text-center">.NET 8</span>
+                <span class="bg-gray-700 text-white text-sm font-medium px-4 py-2 rounded-full text-center">ASP.NET Core Web API</span>
+                <span class="bg-gray-700 text-white text-sm font-medium px-4 py-2 rounded-full text-center">ASP.NET Core MVC</span>
+                <span class="bg-gray-700 text-white text-sm font-medium px-4 py-2 rounded-full text-center">ASP.NET Core Identity</span>
+                <span class="bg-gray-700 text-white text-sm font-medium px-4 py-2 rounded-full text-center">Entity Framework Core 8</span>
+                <span class="bg-gray-700 text-white text-sm font-medium px-4 py-2 rounded-full text-center">Dapper</span>
+                <span class="bg-gray-700 text-white text-sm font-medium px-4 py-2 rounded-full text-center">SQL Server</span>
+                <span class="bg-gray-700 text-white text-sm font-medium px-4 py-2 rounded-full text-center">JavaScript (jQuery/AJAX)</span>
+                <span class="bg-gray-700 text-white text-sm font-medium px-4 py-2 rounded-full text-center">Swagger / OpenAPI</span>
+            </div>
+        </section>
 
-## Features
+        <!-- Project Structure Section -->
+        <section>
+            <h2 class="text-3xl font-bold text-white border-b-2 border-blue-500 pb-2 mb-6 mt-12">Project Structure</h2>
+            <pre class="bg-gray-900 p-4 rounded-md overflow-x-auto font-mono text-sm text-gray-200 border border-gray-700">
+<code class="language-text">
+InvoiceAppsSolution
+│
+├── InvoiceApps.Api             # Web API backend
+│   ├── Controllers            # API controllers
+│   ├── Data                   # EF Core DbContext
+│   ├── Models                 # Entity models (Employee, Department)
+│   ├── Repositories           # Repository interfaces and implementations
+│   ├── Services               # Dapper and helper services
+│   ├── Properties             # launchSettings.json
+│   ├── Program.cs             # API middleware, DI, Swagger setup
+│   └── appsettings.json       # Connection strings
+│
+├── InvoiceApps.MvcClient       # MVC Client frontend
+│   ├── Controllers            # MVC controllers
+│   ├── Views                  # Razor views
+│   ├── wwwroot                # Static files (js, css)
+│   ├── Program.cs             # MVC app middleware
+│   └── appsettings.json       # MVC client config
+│
+├── sql                        # SQL scripts
+│   ├── schema.sql             # Database schema (tables)
+│   ├── seed.sql               # Sample seed data
+│   ├── sprocstriggers.sql     # Stored procedures and triggers
+│
+└── asp_projects.sln           # Visual Studio solution file
+</code>
+</pre>
+        </section>
 
-* ✨ **Feature 1:** Does this amazing thing.
-* 🚀 **Feature 2:** Super fast and efficient.
-* 🔒 **Feature 3:** Secure and reliable.
+        <!-- Prerequisites Section -->
+        <section>
+            <h2 class="text-3xl font-bold text-white border-b-2 border-blue-500 pb-2 mb-6 mt-12">Prerequisites</h2>
+            <ul class="list-disc list-inside space-y-2 text-gray-300">
+                <li><a href="https://dotnet.microsoft.com/en-us/download/dotnet/8.0" target="_blank" class="text-blue-400 hover:underline">.NET 8 SDK</a></li>
+                <li><a href="https://www.microsoft.com/en-us/sql-server/sql-server-downloads" target="_blank" class="text-blue-400 hover:underline">SQL Server</a> (or SQL Server Express)</li>
+                <li><a href="https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms" target="_blank" class="text-blue-400 hover:underline">SQL Server Management Studio</a> (or a similar tool like <code>sqlcmd</code>)</li>
+                <li><a href="https://visualstudio.microsoft.com/" target="_blank" class="text-blue-400 hover:underline">Visual Studio 2022</a> (or VS Code)</li>
+            </ul>
+        </section>
 
-## Built With
+        <!-- Setup Section -->
+        <section>
+            <h2 class="text-3xl font-bold text-white border-b-2 border-blue-500 pb-2 mb-6 mt-12">Setup and Running Instructions</h2>
 
-This project was built using the following technologies:
+            <h3 class="text-2xl font-semibold text-gray-200 mt-8 mb-4">1. Configure the Database</h3>
+            <p class="text-gray-300 text-base leading-relaxed mb-4">
+                Use SQL Server Management Studio or <code>sqlcmd</code> to run the following SQL scripts from the <code>/sql/</code> folder <strong>in this specific order</strong>:
+            </p>
+            <ol class="list-decimal list-inside space-y-2 text-gray-300 bg-gray-900 p-4 rounded-md border border-gray-700">
+                <li><code>schema.sql</code> (Creates the database, tables, and relationships)</li>
+                <li><code>seed.sql</code> (Inserts sample data for Departments, Designations, etc.)</li>
+                <li><code>sprocstriggers.sql</code> (Creates all required stored procedures and triggers)</li>
+            </ol>
 
-* [![Next][Next.js]][Next-url]
-* [![React][React.js]][React-url]
-* [![Tailwind][TailwindCSS]][Tailwind-url]
-* [![TypeScript][TypeScript]][TypeScript-url]
+            <h3 class="text-2xl font-semibold text-gray-200 mt-8 mb-4">2. Configure Connection Strings</h3>
+            <p class="text-gray-300 text-base leading-relaxed mb-4">
+                Open the <code>appsettings.json</code> file in the <strong><code>InvoiceApps.Api</code></strong> project:
+            </p>
+            <pre class="bg-gray-900 p-4 rounded-md overflow-x-auto font-mono text-sm text-gray-200 border border-gray-700">
+<code class="language-json">
+"ConnectionStrings": {
+  "DefaultConnection": "Server=YOUR_SERVER_NAME;Database=InvoiceAppsDb;Trusted_Connection=True;MultipleActiveResultSets=true;TrustServerCertificate=True"
+}
+</code>
+</pre>
+            <p class="text-gray-300 text-base leading-relaxed mt-4">
+                Update <code>Server=YOUR_SERVER_NAME</code> to match your local SQL Server instance name (e.g., <code>localhost</code>, <code>.\SQLEXPRESS</code>).
+            </p>
 
-[Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
-[Next-url]: https://nextjs.org/
-[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
-[React-url]: https://reactjs.org/
-[TailwindCSS]: https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white
-[Tailwind-url]: https://tailwindcss.com/
-[TypeScript]: https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white
-[TypeScript-url]: https://www.typescriptlang.org/
+            <h3 class="text-2xl font-semibold text-gray-200 mt-8 mb-4">3. Run the Applications</h3>
+            <p class="text-gray-300 text-base leading-relaxed mb-4">
+                You need to run both the API and the MVC client simultaneously.
+            </p>
+            
+            <strong class="text-lg text-white">In Terminal 1 (Run the API):</strong>
+            <pre class="bg-gray-900 p-4 rounded-md overflow-x-auto font-mono text-sm text-gray-200 border border-gray-700 my-2">
+<code class="language-bash">
+# Navigate to the API project folder
+cd InvoiceAppsSolution/InvoiceApps.Api
 
-## Getting Started
+# Restore dependencies and build
+dotnet restore
+dotnet build
 
-Follow these instructions to get a copy of the project up and running on your local machine for development and testing purposes.
+# Run the API
+dotnet run
+</code>
+</pre>
+            <p class="text-gray-300 text-base leading-relaxed mb-4">
+                The API will typically start on <code>https://localhost:5001</code>.
+            </p>
 
-### Prerequisites
+            <strong class="text-lg text-white">In Terminal 2 (Run the MVC Client):</strong>
+            <pre class="bg-gray-900 p-4 rounded-md overflow-x-auto font-mono text-sm text-gray-200 border border-gray-700 my-2">
+<code class="language-bash">
+# Navigate to the MVC project folder
+cd InvoiceAppsSolution/InvoiceApps.MvcClient
 
-Make sure you have the following installed:
-* **Node.js** (v18 or newer)
-    ```sh
-    node -v
-    ```
-* **npm** (or yarn/pnpm)
-    ```sh
-    npm -v
-    ```
+# Restore dependencies and build
+dotnet restore
+dotnet run --urls "http://localhost:5002;http://localhost:5003"
 
-### Installation
+# Run the MVC Client
+dotnet run
+</code>
+</pre>
+            <p class="text-gray-300 text-base leading-relaxed mb-4">
+                The MVC client will typically start on <code>https://localhost:5002</code>.
+            </p>
 
-1.  **Clone the repository**
-    ```sh
-    git clone [https://github.com/](https://github.com/)[your-username]/[your-repo-name].git
-    ```
-2.  **Navigate to the project directory**
-    ```sh
-    cd [your-repo-name]
-    ```
-3.  **Install dependencies**
-    ```sh
-    npm install
-    ```
-    *(or `yarn install` / `pnpm install`)*
-4.  **Set up environment variables**
-    Create a `.env.local` file in the root and add the necessary variables.
-    ```sh
-    cp .env.example .env.local
-    ```
-    Then, fill in `YOUR_API_KEY` and `DATABASE_URL` in the `.env.local` file.
+            <h3 class="text-2xl font-semibold text-gray-200 mt-8 mb-4">4. Access the Applications</h3>
+            <ul class="list-disc list-inside space-y-2 text-gray-300">
+                <li><strong>MVC Client UI:</strong> <a href="https://localhost:5002" target="_blank" class="text-blue-400 hover:underline">https://localhost:7125</a> (Check your terminal for the exact port)</li>
+                <li><strong>Web API Swagger UI:</strong> <a href="https://localhost:5001/swagger" target="_blank" class="text-blue-400 hover:underline">https://localhost:5001/swagger</a> (Check your terminal for the exact port)</li>
+            </ul>
+        </section>
 
-## Usage
+        <!-- Known Issues Section -->
+        <section>
+            <h2 class="text-3xl font-bold text-white border-b-2 border-blue-500 pb-2 mb-6 mt-12">Known Issues</h2>
+            <ul class="list-disc list-inside space-y-2 text-gray-300">
+                <li><strong class="font-semibold text-white">HTTPS Certificate:</strong> Your browser may show a warning about the local development certificate. To fix this, run <code>dotnet dev-certs https --trust</code> in your terminal.</li>
+                <li><strong class="font-semibold text-white">File Uploads:</strong> Uploaded files are saved to an <code>Uploads</code> folder in the <code>InvoiceApps.Api</code> project root. Ensure the application has write permissions to this directory.</li>
+            </ul>
+        </section>
 
-After installation, you can run the project locally:
+        <!-- Contact Section -->
+        <section>
+            <h2 class="text-3xl font-bold text-white border-b-2 border-blue-500 pb-2 mb-6 mt-12">Contact</h2>
+            <p class="text-gray-300 text-base leading-relaxed">
+                For any questions regarding this solution, please contact:
+                <br>
+                <strong class="font-semibold text-white">Name: Momitul Hoque Chowdhury </br>Email: momituledu@gmail.com</strong>
+            </p>
+        </section>
 
-**Run the development server:**
-```sh
-npm run dev
-```
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+    </div> <!-- /End Main Content Container -->
 
-**Run in production mode:**
-```sh
-npm run build
-npm start
-```
-
-**Example CLI usage:**
-```sh
-your-tool --input "some/file.txt" --output "new/file.txt"
-```
-
-## Roadmap
-
-* [ ] **Feature A:** Add a dashboard
-* [ ] **Feature B:** Integrate with [Some Other Service]
-* [ ] **Feature C:** Support for multiple languages
-
-See the [open issues](https://github.com/[your-username]/[your-repo-name]/issues) for a full list of proposed features (and known bugs).
-
-## Contributing
-
-Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-
-Don't forget to give the project a star! ⭐
-
-1.  **Fork** the Project
-2.  **Create your Feature Branch** (`git checkout -b feature/AmazingFeature`)
-3.  **Commit your Changes** (`git commit -m 'Add some AmazingFeature'`)
-4.  **Push to the Branch** (`git push origin feature/AmazingFeature`)
-5.  **Open a Pull Request**
-
-Please read `CONTRIBUTING.md` for details on our code of conduct and the process for submitting pull requests.
-
-## License
-
-Distributed under the [MIT License](LICENSE). See `LICENSE` for more information.
-
-## Contact
-
-[Your Name] - [@YourTwitterHandle] - [your.email@example.com]
-
-Project Link: [https://github.com/[your-username]/[your-repo-name]](https://github.com/[your-username]/[your-repo-name])
-
-## Acknowledgments
-
-* [Readme.so](https://readme.so/) - For this amazing README template.
-* [Shields.io](https://shields.io/) - For the great-looking badges.
-* [Awesome Readme](https://github.com/matiassingers/awesome-readme) - For inspiration.
+</body>
+</html>
