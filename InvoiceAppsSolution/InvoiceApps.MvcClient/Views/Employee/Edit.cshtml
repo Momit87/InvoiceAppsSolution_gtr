@@ -1,0 +1,32 @@
+@model int
+@{
+    Layout = null;
+    var id = Model;
+}
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Edit Employee</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script>
+        $(function(){
+            var id = @id;
+            // Load employee via API and fill form
+            $.get('/api/employees/' + id, function(data){
+                $('#FirstName').val(data.firstName);
+                $('#LastName').val(data.lastName);
+                $('#Email').val(data.email);
+            });
+        });
+    </script>
+</head>
+<body>
+<form id="frm">
+    <input id="FirstName" />
+    <input id="LastName" />
+    <input id="Email" />
+    <button type="submit">Save</button>
+</form>
+</body>
+</html>

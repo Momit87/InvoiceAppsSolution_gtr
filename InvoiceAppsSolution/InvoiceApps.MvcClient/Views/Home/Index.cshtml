@@ -1,0 +1,34 @@
+@{
+    Layout = null;
+}
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>InvoiceApps MVC Client</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="~/js/main.js"></script>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <div class="container">
+        <h1>Employees (MVC Client)</h1>
+
+        <button id="btnLoad">Load Employees (API)</button>
+        <button id="btnLoadSP">Load Employees (API via SP)</button>
+        <button id="btnProducts">Load External Products</button>
+        <input id="fileUpload" type="file" />
+        <button id="btnUpload">Upload</button>
+
+        <div id="messages"></div>
+
+        <table id="tblEmployees" border="1">
+            <thead><tr><th>Id</th><th>Name</th><th>Email</th><th>Dept</th><th>Desig</th><th>Actions</th></tr></thead>
+            <tbody></tbody>
+        </table>
+
+        <h2>External Products (from https://www.pqstec.com/InvoiceApps/values/GetProductListAll)</h2>
+        <div id="products"></div>
+    </div>
+</body>
+</html>
